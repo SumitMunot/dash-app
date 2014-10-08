@@ -192,8 +192,8 @@ function pieChart(users, sessions, pageviews){
 	});
 }
 
-$(function(){
-	var chartData = generateChartData();
+function serialCalkGraph(users, sessions, pageviews){
+	var chartData = generateChartData(users, sessions, pageviews);
 	var chart = AmCharts.makeChart("serialChalkChartdiv", {
 	    "type": "serial",
 	    "theme": "chalk",
@@ -250,10 +250,10 @@ $(function(){
 	    chart.zoomToIndexes(chartData.length - 40, chartData.length - 1);
 	}
 
-})
+}
 
 // generate some random data, quite different range
-function generateChartData() {
+function generateChartData(users, sessions, pageviews) {
   var chartData = [];
   var firstDate = new Date();
   firstDate.setDate(firstDate.getDate() - 30);

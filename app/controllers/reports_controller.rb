@@ -36,6 +36,7 @@ class ReportsController < ApplicationController
       @response_json = access_token.get('https://www.googleapis.com/analytics/v3/management/accounts').body
       user = Legato::User.new(access_token)
       profile = user.profiles.first
+      binding.pry
       @users = Report.get_user_count(profile, 1.month.ago, 0.month.ago)
       @sessions = Report.get_session_count(profile, 1.month.ago, 0.month.ago)
       @pageviews = Report.get_pageview(profile, 1.month.ago, 0.month.ago)

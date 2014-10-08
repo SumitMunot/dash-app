@@ -43,6 +43,7 @@
     $( document ).ready(function() {
         serialChart(<%=@users%>, <%=@sessions%>, <%=@pageviews %>);
         pieChart(<%=@users%>, <%=@sessions%>, <%=@pageviews %>);
+        serialCalkGraph(<%=@users%>, <%=@sessions%>, <%=@pageviews %>);
     });
 
     jQuery('.chart-input').off().on('input change',function() {
