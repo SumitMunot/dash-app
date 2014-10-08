@@ -1,0 +1,61 @@
+<div class="get_analytics">
+    <%= form_tag reports_path(@reports), :method => :get , id: "" do %>
+        <%= select_tag "Account", options_for_select(@names.collect {|x| [x]}) rescue nil %>
+        <%= submit_tag 'Day Data' %>
+        <%= submit_tag 'Week Data' %>
+        <%= submit_tag 'Month Data' %>
+    <% end %>
+</div>
+
+<h5>Analytics information for account: <%= @name %> </h5>
+
+<p>
+  <h5>Users : <b><%= @users rescue 0 %></b></h5>
+  <h5>Sessions : <b><%= @sessions rescue 0 %></b></h5>
+  <h5>Pageviews : <b><%= @pageviews rescue 0 %></b></h5>
+</p>
+
+<br>
+
+<div id="barchartdiv"></div>
+<div class="container-fluid">
+  <div class="row text-center" style="overflow:hidden;">
+        <div class="col-sm-3" style="float: none !important;display: inline-block;">
+            <label class="text-left">Angle:</label>
+            <input class="chart-input" data-property="angle" type="range" min="0" max="60" value="30" step="1" />   
+        </div>
+
+        <div class="col-sm-3" style="float: none !important;display: inline-block;">
+            <label class="text-left">Depth:</label>
+            <input class="chart-input" data-property="depth5D" type="range" min="1" max="25" value="10" step="1" />
+        </div>
+        <div class="col-sm-3" style="float: none !important;display: inline-block;">
+            <label class="text-left">Inner-Radius:</label>
+            <input class="chart-input" data-property="innerRadius" type="range" min="0" max="80" value="0" step="1" />
+        </div>
+    </div>
+</div>
+<br/>
+<div id="chartdiv"></div>
+<div id="serialChalkChartdiv"></div>
+
+<script type="text/javascript">
+    $( document ).ready(function() {
+        serialChart(<%=@users%>, <%=@sessions%>, <%=@pageviews %>);
+        pieChart(<%=@users%>, <%=@sessions%>, <%=@pageviews %>);
+    });
+
+    jQuery('.chart-input').off().on('input change',function() {
+        var property    = jQuery(this).data('property');
+        var target      = chart;
+        var value       = Number(this.value);
+        chart.startDuration = 0;
+
+        if ( property == 'innerRadius') {
+            value += "%";
+        }
+
+        target[property] = value;
+        chart.validateNow();
+    });
+</script>

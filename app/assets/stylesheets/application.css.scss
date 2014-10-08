@@ -1,0 +1,133 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ //colors
+$black_90: rgba(0, 0, 0, 0.9);
+$black: #000;
+$black_45: rgba(0, 0, 0, 0.45);
+
+.mini-submenu {
+	display: none;
+	background-color: rgba(0, 0, 0, 0);
+	border: 1px solid $black_90;
+	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+	border-radius: 4px;
+	padding: 9px;
+	width: 42px;
+	&:hover {
+		cursor: pointer;
+	}
+	.icon-bar {
+		//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+		border-radius: 1px;
+		display: block;
+		height: 2px;
+		width: 22px;
+		margin-top: 3px;
+		background-color: $black;
+	}
+}
+#slide-submenu {
+	background: $black_45;
+	display: inline-block;
+	padding: 0 8px;
+}
+
+#stat-pie1-chartdiv, #stat-pie2-chartdiv {
+	width		: 100%;
+	height		: 500px;
+	font-size	: 11px;
+}
+
+.block {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 white;
+    border-color: -moz-use-text-color #ccc #ccc;
+    border-image: none;
+    border-right: 1px solid #ccc;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    margin: 1em 0;
+}
+
+.navbar-inner:before, .navbar-inner:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.navbar-inner:after {
+    clear: both;
+}
+.navbar-inner:before, .navbar-inner:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.block-header {
+    border-left: medium none;
+    border-radius: 0;
+    border-right: medium none;
+    margin-bottom: 0;
+}
+.navbar-inner {
+    background-color: #fafafa;
+    background-image: linear-gradient(to bottom, #fff, #f2f2f2);
+    background-repeat: repeat-x;
+    border: 1px solid #d4d4d4;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    min-height: 40px;
+}
+.navbar {
+    margin-bottom: 20px;
+    overflow: visible;
+}
+
+.block-header div {
+		padding-left: 22px;
+    padding-top: 10px;
+}
+.pull-left {
+    float: left;
+}
+
+.span3 {
+		width: 100%;
+}
+
+.span2 {
+		widht: 100%;
+}
+
+.muted {
+    color: #999;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Covered+By+Your+Grace);
+#serialChalkChartdiv {background: #282828 url('http://www.amcharts.com/lib/3/patterns/chalk/bg.jpg');color: #fff;
+    width       : 100%;
+    height      : 500px;
+    font-size   : 11px;
+}
+
+#chartdiv, #barchartdiv{
+    width       : 100%;
+    height      : 500px;
+    font-size   : 11px;
+}        
