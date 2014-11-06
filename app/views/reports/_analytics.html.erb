@@ -1,21 +1,18 @@
 <div class="get_analytics">
     <%= form_tag reports_path(@reports), :method => :get , id: "" do %>
-        <%= select_tag "Account", options_for_select(@names.collect {|x| [x]}) rescue nil %>
-        <%= submit_tag 'Day Data' %>
-        <%= submit_tag 'Week Data' %>
-        <%= submit_tag 'Month Data' %>
+        <%= select_tag "Account", options_for_select(@names.collect {|x| [x]}), :class =>"btn btn-default" rescue nil %>
+        <%= submit_tag 'Day Data', :class =>"btn btn-default" %>
+        <%= submit_tag 'Week Data', :class =>"btn btn-default" %>
+        <%= submit_tag 'Month Data', :class =>"btn btn-default" %>
     <% end %>
 </div>
 
-<h5>Analytics information for account: <%= @name %> </h5>
-
-<p>
-  <h5>Users : <b><%= @users rescue 0 %></b></h5>
-  <h5>Sessions : <b><%= @sessions rescue 0 %></b></h5>
-  <h5>Pageviews : <b><%= @pageviews rescue 0 %></b></h5>
-</p>
-
-<br>
+<div class="dash-margin">
+    <h5>Analytics account: <b><%= @name %></b></h5>
+    <p>
+      <h5>Users : <b><%= @users rescue 0 %></b>&nbsp; Sessions : <b><%= @sessions rescue 0 %></b>&nbsp; Pageviews : <b><%= @pageviews rescue 0 %></b></h5>
+    </p>
+</div>
 
 <div id="barchartdiv"></div>
 <div class="container-fluid">

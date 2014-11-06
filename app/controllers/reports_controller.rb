@@ -1,8 +1,6 @@
 require 'net/http'
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-  LEGATO_OAUTH_CLIENT_ID='941417668948-sm0mnqcrvnojqanmn1ji9969sihkam74.apps.googleusercontent.com'
-  LEGATO_OAUTH_SECRET_KEY='RITCXfzU8B-NHaH2pKfYmFKt'
   # GET /reports
   # GET /reports.json
   def index
@@ -10,37 +8,19 @@ class ReportsController < ApplicationController
     google_access_token
   end
 
-  # GET client auth token
-  # GET response json
-  def google_access_token
-    $client = OAuth2::Client.new(LEGATO_OAUTH_CLIENT_ID, LEGATO_OAUTH_SECRET_KEY, {
-      :authorize_url => 'https://accounts.google.com/o/oauth2/auth',
-      :token_url => 'https://accounts.google.com/o/oauth2/token'
-    })
-    @url = $client.auth_code.authorize_url({
-      :scope => 'https://www.googleapis.com/auth/analytics.readonly',
-      :redirect_uri => 'http://localhost:3000/oauth2callback',
-      :access_type => 'offline'
-    })
-    redirect_to @url
-  end
   
   # GET access auth token
   # GET response json
   def outh_response
     @reports = Report.all
-    users = []
-    names = []
     begin
       access_token = $client.auth_code.get_token(params[:code], :redirect_uri => 'http://localhost:3000/oauth2callback')
       @response_json = access_token.get('https://www.googleapis.com/analytics/v3/management/accounts').body
       user = Legato::User.new(access_token)
       profile = user.profiles.first
-      binding.pry
       @users = Report.get_user_count(profile, 1.month.ago, 0.month.ago)
       @sessions = Report.get_session_count(profile, 1.month.ago, 0.month.ago)
       @pageviews = Report.get_pageview(profile, 1.month.ago, 0.month.ago)
-      @wearther_data = ''
       @name = user.profiles.map(&:name).first
       @names = user.profiles.map(&:name)
       render :index

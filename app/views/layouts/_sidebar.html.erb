@@ -12,15 +12,15 @@
                     <i class="fa fa-times"></i>
                 </span>
             </span>
-            <%= link_to "Dashboard", reports_path, :class => "list-group-item  #{is_active?('reports','outh_response')}" %>
-            <%= link_to "Reports", vistors_reports_path, :class => "list-group-item #{is_active?('visitors','report')}" %>
-            <%= link_to "Status information", root_path, :class => "list-group-item #{is_active?('visitors','index')}" %>
+            <%= link_to "Dashboard", reports_path, :class => "list-group-item  #{is_active('reports','outh_response')}" %>
+            <%= link_to "Reports", vistors_reports_path, :class => "list-group-item #{is_active('visitors','report')}" %>
+            <%= link_to "Status information", root_path, :class => "list-group-item #{is_active('visitors','index')}" %>
             <% if user_signed_in? %>
-              <%= link_to 'Edit account', edit_user_registration_path, :class => "list-group-item #{is_active?('devise/registrations','edit')}" %>
-              <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete', :class => "list-group-item #{is_active?('devise/sessions','destory')}" %>
+              <%= link_to 'Edit account', edit_user_registration_path, :class => "list-group-item #{is_active('devise/registrations','edit')}" %>
+              <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete', :class => "list-group-item #{is_active('devise/sessions','destory')}" %>
             <% else %>
-              <%= link_to 'Sign in', new_user_session_path, :class => "list-group-item #{is_active?('devise/sessions','new')}" %>
-              <%= link_to 'Sign up', new_user_registration_path, :class => "list-group-item #{is_active?('devise/registrations','new')}" %>
+              <%= link_to 'Sign in', new_user_session_path, :class => "list-group-item #{is_active('devise/sessions','new')}" %>
+              <%= link_to 'Sign up', new_user_registration_path, :class => "list-group-item #{is_active('devise/registrations','new')}" %>
             <% end %>
         </div> 
     </div>  

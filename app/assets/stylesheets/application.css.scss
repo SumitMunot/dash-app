@@ -95,8 +95,8 @@ $black_45: rgba(0, 0, 0, 0.45);
     min-height: 40px;
 }
 .navbar {
-    margin-bottom: 20px;
     overflow: visible;
+    margin-bottom: 0px;
 }
 
 .block-header div {
@@ -134,4 +134,14 @@ $black_45: rgba(0, 0, 0, 0.45);
 
 .bag-col {
     background-color: #d9d9d9;
+}
+
+#funnelchartdiv {
+    width       : 100%;
+    height      : 500px;
+    font-size   : 11px;
+} 
+
+.dash-margin {
+    margin-left: 20px;
 }

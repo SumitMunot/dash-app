@@ -1,31 +1,29 @@
-<h1>Analytics reports</h1>
-<!-- 
-<table>
-  <thead>
-    <tr>
-      <th>Page view</th>
-      <th>Sessions</th>
-      <th>Date</th>
-      <th>Site</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="navbar-inner">
+    <ul class="breadcrumb">
+        <i class="icon-chevron-left hide-sidebar"><a rel="tooltip" title="Hide Sidebar" href="#">&nbsp;</a></i>
+        <i style="display:none;" class="icon-chevron-right show-sidebar"><a rel="tooltip" title="Show Sidebar" href="#">&nbsp;</a></i>
+        <li>
+            <a href="#">Dashboard Control</a> <span class="divider"></span> 
+        </li>
+        <li>
+            <a href="#">Dashboard</a> <span class="divider"></span> 
+        </li>
+        <li class="active">Analytics Report</li>
+    </ul>
+</div>
 
-  <tbody>
-    <% @reports.each do |report| %>
-      <tr>
-        <td><%#= report.page_view %></td>
-        <td><%#= report.sessions %></td>
-        <td><%#= report.date %></td>
-        <td><%#= report.site_id %></td>
-        <td><%#= link_to 'Show', report %></td>
-        <td><%#= link_to 'Edit', edit_report_path(report) %></td>
-        <td><%#= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table> -->
-
-<%= render partial: "analytics" %>
-
-<%#= link_to 'New Report', new_report_path %>
+<div class="row-fluid">
+  <!-- block -->
+  <div class="block">
+      <div class="navbar navbar-inner block-header">
+          <div class="muted pull-left">Analytics chart</div>
+          <div class="pull-right"><span class="badge badge-warning">View More</span></div>
+      </div>
+      <div class="block-content collapse in"> 
+        <div class="span3">
+          <%= render partial: "analytics" %>
+        </div>
+      </div>
+  </div>
+  <!-- /block -->
+</div>

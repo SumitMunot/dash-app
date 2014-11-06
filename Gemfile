@@ -20,9 +20,10 @@ gem 'unicorn-rails'
 gem 'legato'
 gem 'pry'
 gem 'oauth2'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git',
- :branch => 'bootstrap3'
+gem 'twitter-bootstrap-rails'
 gem 'jquery-ui-rails'
+gem 'tiny_tds'
+gem 'activerecord-sqlserver-adapter'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
