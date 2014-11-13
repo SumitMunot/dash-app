@@ -126,22 +126,16 @@ $black_45: rgba(0, 0, 0, 0.45);
     font-size   : 11px;
 }
 
-#chartdiv, #barchartdiv{
-    width       : 100%;
-    height      : 500px;
-    font-size   : 11px;
-}        
-
 .bag-col {
     background-color: #d9d9d9;
 }
 
-#funnelchartdiv {
-    width       : 100%;
-    height      : 500px;
-    font-size   : 11px;
-} 
-
 .dash-margin {
     margin-left: 20px;
+}
+
+#chartdiv, #barchartdiv, #funnel-chart, #stacked-bar-chart, #stacked-single-bar-chart, #stacked-horizontal-chart, #area-chart, #time-based-area-chart {
+    width       : 100%;
+    height      : 300px;
+    font-size   : 11px;
 }
