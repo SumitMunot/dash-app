@@ -13,7 +13,6 @@ module ApplicationHelper
 		begin
 			if json["graph_date"]
 				json["graph_date"].each do |data|
-					binding.pry
 					hash[:year] = data.keys
 					hash.merge(data.values)
 				end
